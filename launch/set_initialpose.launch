@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+	<group ns="initialization">
+	    <!-- LAUNCH NODE -->
+	    <node name="set_initialpose" pkg="set_initialpose" type="set_initialpose" output="screen">
+
+	      <param name="position_x" value="-1.990" />      
+	      <param name="position_y" value="1.88" />
+	      <param name="orientation_th" value="1.45" />
+
+	      <param name="covariance_x" value="0.4" />
+	      <param name="covariance_y" value="0.4" />
+	      <param name="covariance_th" value="0.2" />
+
+	    </node>
+	</group>
+
+</launch>
