@@ -12,9 +12,15 @@ else()
         message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
 endif()
 
-
-find_package(catkin REQUIRED COMPONENTS std_msgs roscpp rospy geometry_msgs tf_conversions)
-
+find_package(catkin REQUIRED COMPONENTS
+    geometry_msgs
+    ipa_navigation_msgs
+    roscpp
+    roslib
+    rospy
+    std_msgs
+    tf_conversions
+    )
 
 catkin_package()
 
@@ -25,8 +31,14 @@ include_directories(
 
 add_executable(set_initialpose
   src/set_initialpose_node.cpp
-
 )
+
+#build nav first to find ipa_navigation_msgs
+#add_dependencies(ipa_navigation
+#  ${${PROJECT_NAME}_EXPORTED_TARGETS}
+#  ${catkin_EXPORTED_TARGETS}
+#)
+
 
 target_link_libraries(set_initialpose
    ${catkin_LIBRARIES}

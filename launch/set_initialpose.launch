@@ -1,18 +1,21 @@
 <?xml version="1.0"?>
 <launch>
 	<group ns="initialization">
-	    <!-- LAUNCH NODE -->
-	    <node name="set_initialpose" pkg="set_initialpose" type="set_initialpose" output="screen">
+        <!-- LAUNCH NODE -->
+        <node name="set_initialpose" pkg="set_initialpose" type="set_initialpose" output="screen">
 
-	      <param name="position_x" value="-1.990" />      
-	      <param name="position_y" value="1.88" />
-	      <param name="orientation_th" value="1.45" />
+            <param name="use_last_known_pose" value="true" />    <!--if you want to use the last known robot pose, please set this param "true" -->
 
-	      <param name="covariance_x" value="0.4" />
-	      <param name="covariance_y" value="0.4" />
-	      <param name="covariance_th" value="0.2" />
+            <!--if "use_last_known_pose" = false, please set 2D Pose -->
+            <param name="position_x" value="0.0" />
+            <param name="position_y" value="0.0" />
+            <param name="orientation_th" value="0.0" />
 
-	    </node>
-	</group>
+            <!--set covariances for initial pose (always requiered)! -->
+            <param name="covariance_x" value="0.4" />
+            <param name="covariance_y" value="0.4" />
+            <param name="covariance_th" value="0.2" />
 
+        </node>
+    </group>
 </launch>
