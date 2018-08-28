@@ -1,4 +1,4 @@
-# package to set the initial robot pose under ROS
+# package to set the initial robot pose using ROS
 
 Option 1 (`use_last_known_pose = false`):
   - Set initial 2D-Pose in launch-file.
