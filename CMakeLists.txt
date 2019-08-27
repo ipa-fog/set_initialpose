@@ -14,6 +14,7 @@ endif()
 
 find_package(catkin REQUIRED COMPONENTS
     geometry_msgs
+    ipa_navigation
     ipa_navigation_msgs
     roscpp
     roslib
@@ -33,12 +34,10 @@ add_executable(set_initialpose
   src/set_initialpose_node.cpp
 )
 
-#build nav first to find ipa_navigation_msgs
-#add_dependencies(ipa_navigation
-#  ${${PROJECT_NAME}_EXPORTED_TARGETS}
-#  ${catkin_EXPORTED_TARGETS}
-#)
-
+add_dependencies(set_initialpose
+  ${${PROJECT_NAME}_EXPORTED_TARGETS}
+  ${catkin_EXPORTED_TARGETS}
+)
 
 target_link_libraries(set_initialpose
    ${catkin_LIBRARIES}

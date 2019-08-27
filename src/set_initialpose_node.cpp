@@ -29,7 +29,7 @@ void callbackPose(const ipa_navigation_msgs::StateEKF::ConstPtr& msg)
     m.getRPY(roll, pitch, orientation_th);
 
     static int counter;
-    if(++counter == 100) // each second
+    if(++counter == 300) // each second
     {
         safePose(position_x, position_y, orientation_th); // safe parameter in file
         counter = 0;
@@ -51,7 +51,7 @@ void safePose(double x, double y, double th)
         pose_file <<"\n Orientation th = \n";
         pose_file << th;
         pose_file.close();
-        ROS_INFO("saved pose %f %f %f", x, y, th);
+        //ROS_INFO("saved pose %f %f %f", x, y, th);
     }
     else std::cout << "Unable to open file";
 }
